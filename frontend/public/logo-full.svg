@@ -1,0 +1,94 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradients and effects -->
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#bf00ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff00ff;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="iconGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Icon part (scaled down version) -->
+  <g transform="translate(30, 30)">
+    <!-- Rounded square background -->
+    <rect x="0" y="0" width="240" height="240" rx="40" fill="url(#logoGradient)" opacity="0.15"/>
+    <rect x="0" y="0" width="240" height="240" rx="40" fill="none" stroke="url(#logoGradient)" stroke-width="3" filter="url(#iconGlow)"/>
+
+    <!-- Stylized "A" -->
+    <path d="M 60 210 L 80 50 L 110 50 L 95 210 Z" fill="url(#logoGradient)" filter="url(#iconGlow)"/>
+    <path d="M 150 50 L 170 50 L 190 210 L 150 210 Z" fill="url(#logoGradient)" filter="url(#iconGlow)"/>
+    <path d="M 85 75 L 160 75 L 157 95 L 88 95 Z" fill="url(#logoGradient)" filter="url(#iconGlow)"/>
+
+    <!-- Port opening -->
+    <rect x="102" y="120" width="46" height="55" rx="4" fill="#1a1a2e" stroke="url(#logoGradient)" stroke-width="3" filter="url(#iconGlow)"/>
+    <rect x="107" y="125" width="36" height="45" rx="2" fill="url(#logoGradient)" opacity="0.3"/>
+
+    <!-- Tech lines -->
+    <line x1="60" y1="110" x2="40" y2="110" stroke="#00ffff" stroke-width="2" opacity="0.6"/>
+    <line x1="60" y1="140" x2="40" y2="140" stroke="#bf00ff" stroke-width="2" opacity="0.6"/>
+    <line x1="60" y1="170" x2="40" y2="170" stroke="#ff00ff" stroke-width="2" opacity="0.6"/>
+
+    <line x1="190" y1="110" x2="210" y2="110" stroke="#00ffff" stroke-width="2" opacity="0.6"/>
+    <line x1="190" y1="140" x2="210" y2="140" stroke="#bf00ff" stroke-width="2" opacity="0.6"/>
+    <line x1="190" y1="170" x2="210" y2="170" stroke="#ff00ff" stroke-width="2" opacity="0.6"/>
+
+    <!-- Data dots -->
+    <circle cx="50" cy="110" r="3" fill="#00ffff" filter="url(#iconGlow)"/>
+    <circle cx="50" cy="140" r="3" fill="#bf00ff" filter="url(#iconGlow)"/>
+    <circle cx="50" cy="170" r="3" fill="#ff00ff" filter="url(#iconGlow)"/>
+    <circle cx="200" cy="110" r="3" fill="#00ffff" filter="url(#iconGlow)"/>
+    <circle cx="200" cy="140" r="3" fill="#bf00ff" filter="url(#iconGlow)"/>
+    <circle cx="200" cy="170" r="3" fill="#ff00ff" filter="url(#iconGlow)"/>
+  </g>
+
+  <!-- Text "Apiport" -->
+  <g transform="translate(330, 150)">
+    <!-- A -->
+    <path d="M 20 60 L 60 -40 L 100 60 L 75 60 L 60 20 L 45 60 Z M 48 30 L 72 30 L 70 40 L 50 40 Z"
+          fill="url(#logoGradient)" filter="url(#textGlow)"/>
+
+    <!-- p -->
+    <path d="M 140 -40 L 140 60 L 165 60 L 165 20 Q 165 0 185 0 Q 205 0 205 20 L 205 60 L 230 60 L 230 20 Q 230 -20 185 -20 Q 165 -20 150 -5 L 150 -40 Z"
+          fill="#00ffff" filter="url(#textGlow)"/>
+
+    <!-- i -->
+    <rect x="270" y="0" width="25" height="60" fill="#bf00ff" filter="url(#textGlow)"/>
+    <circle cx="282.5" cy="-20" r="12" fill="#bf00ff" filter="url(#textGlow)"/>
+
+    <!-- p -->
+    <path d="M 335 0 L 335 60 L 360 60 L 360 20 Q 360 0 380 0 Q 400 0 400 20 L 400 60 L 425 60 L 425 20 Q 425 -20 380 -20 Q 355 -20 345 -5 L 345 0 Z"
+          fill="#ff00ff" filter="url(#textGlow)"/>
+
+    <!-- o -->
+    <circle cx="492.5" cy="30" r="30" fill="none" stroke="#00ffff" stroke-width="25" filter="url(#textGlow)"/>
+
+    <!-- r -->
+    <path d="M 565 0 L 565 60 L 590 60 L 590 25 Q 590 0 610 0 L 630 0 L 630 -20 L 610 -20 Q 585 -20 575 -5 L 575 0 Z"
+          fill="#bf00ff" filter="url(#textGlow)"/>
+
+    <!-- t -->
+    <path d="M 670 -30 L 670 0 L 650 0 L 650 20 L 670 20 L 670 60 L 695 60 L 695 20 L 720 20 L 720 0 L 695 0 L 695 -30 Z"
+          fill="#ff00ff" filter="url(#textGlow)"/>
+  </g>
+
+  <!-- Tagline -->
+  <text x="335" y="200" font-family="Arial, sans-serif" font-size="24" fill="#888" letter-spacing="4">
+    API MANAGEMENT PLATFORM
+  </text>
+</svg>

@@ -1,0 +1,64 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background glow -->
+  <defs>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#bf00ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff00ff;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Rounded square background -->
+  <rect x="32" y="32" width="448" height="448" rx="80" fill="url(#iconGradient)" opacity="0.15"/>
+  <rect x="32" y="32" width="448" height="448" rx="80" fill="none" stroke="url(#iconGradient)" stroke-width="4" filter="url(#glow)"/>
+
+  <!-- Stylized "A" with port/gateway design -->
+  <!-- Left pillar -->
+  <path d="M 150 380 L 180 120 L 220 120 L 200 380 Z" fill="url(#iconGradient)" filter="url(#innerGlow)"/>
+
+  <!-- Right pillar -->
+  <path d="M 312 120 L 332 120 L 362 380 L 312 380 Z" fill="url(#iconGradient)" filter="url(#innerGlow)"/>
+
+  <!-- Top horizontal bar (crossbar of A) -->
+  <path d="M 190 160 L 322 160 L 318 200 L 194 200 Z" fill="url(#iconGradient)" filter="url(#innerGlow)"/>
+
+  <!-- Middle connection (port opening) -->
+  <rect x="215" y="240" width="82" height="100" rx="8" fill="#1a1a2e" stroke="url(#iconGradient)" stroke-width="6" filter="url(#glow)"/>
+
+  <!-- Inner port glow -->
+  <rect x="225" y="250" width="62" height="80" rx="4" fill="url(#iconGradient)" opacity="0.3"/>
+
+  <!-- Tech accent lines -->
+  <line x1="150" y1="220" x2="120" y2="220" stroke="#00ffff" stroke-width="3" opacity="0.6"/>
+  <line x1="150" y1="280" x2="120" y2="280" stroke="#bf00ff" stroke-width="3" opacity="0.6"/>
+  <line x1="150" y1="340" x2="120" y2="340" stroke="#ff00ff" stroke-width="3" opacity="0.6"/>
+
+  <line x1="362" y1="220" x2="392" y2="220" stroke="#00ffff" stroke-width="3" opacity="0.6"/>
+  <line x1="362" y1="280" x2="392" y2="280" stroke="#bf00ff" stroke-width="3" opacity="0.6"/>
+  <line x1="362" y1="340" x2="392" y2="340" stroke="#ff00ff" stroke-width="3" opacity="0.6"/>
+
+  <!-- Data flow dots -->
+  <circle cx="140" cy="220" r="4" fill="#00ffff" filter="url(#glow)"/>
+  <circle cx="140" cy="280" r="4" fill="#bf00ff" filter="url(#glow)"/>
+  <circle cx="140" cy="340" r="4" fill="#ff00ff" filter="url(#glow)"/>
+
+  <circle cx="372" cy="220" r="4" fill="#00ffff" filter="url(#glow)"/>
+  <circle cx="372" cy="280" r="4" fill="#bf00ff" filter="url(#glow)"/>
+  <circle cx="372" cy="340" r="4" fill="#ff00ff" filter="url(#glow)"/>
+</svg>

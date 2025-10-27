@@ -1,0 +1,49 @@
+<svg width="800" height="200" viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#bf00ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff00ff;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="hGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Compact icon -->
+  <g transform="translate(20, 20)">
+    <rect x="0" y="0" width="160" height="160" rx="30" fill="url(#hGradient)" opacity="0.15"/>
+    <rect x="0" y="0" width="160" height="160" rx="30" fill="none" stroke="url(#hGradient)" stroke-width="2" filter="url(#hGlow)"/>
+
+    <path d="M 40 140 L 53 33 L 73 33 L 63 140 Z" fill="url(#hGradient)"/>
+    <path d="M 100 33 L 113 33 L 127 140 L 100 140 Z" fill="url(#hGradient)"/>
+    <path d="M 57 50 L 107 50 L 105 63 L 59 63 Z" fill="url(#hGradient)"/>
+
+    <rect x="68" y="80" width="31" height="37" rx="3" fill="#1a1a2e" stroke="url(#hGradient)" stroke-width="2"/>
+    <rect x="71" y="83" width="25" height="31" rx="2" fill="url(#hGradient)" opacity="0.3"/>
+
+    <line x1="40" y1="73" x2="27" y2="73" stroke="#00ffff" stroke-width="1.5"/>
+    <line x1="40" y1="93" x2="27" y2="93" stroke="#bf00ff" stroke-width="1.5"/>
+    <line x1="40" y1="113" x2="27" y2="113" stroke="#ff00ff" stroke-width="1.5"/>
+
+    <line x1="127" y1="73" x2="140" y2="73" stroke="#00ffff" stroke-width="1.5"/>
+    <line x1="127" y1="93" x2="140" y2="93" stroke="#bf00ff" stroke-width="1.5"/>
+    <line x1="127" y1="113" x2="140" y2="113" stroke="#ff00ff" stroke-width="1.5"/>
+  </g>
+
+  <!-- Text -->
+  <g transform="translate(220, 100)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="80" font-weight="bold"
+          fill="url(#hGradient)" filter="url(#hGlow)" letter-spacing="4">
+      APIPORT
+    </text>
+    <text x="0" y="35" font-family="Arial, sans-serif" font-size="16" fill="#888" letter-spacing="3">
+      API MANAGEMENT PLATFORM
+    </text>
+  </g>
+</svg>

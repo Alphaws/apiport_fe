@@ -1,2 +1,91 @@
-/* You can add global styles to this file, and also import other style files */
 @use "tailwindcss";
+
+/* Neon Effects */
+.neon-border {
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.3), 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.neon-text {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.neon-purple {
+  text-shadow: 0 0 10px rgba(191, 0, 255, 0.8), 0 0 20px rgba(191, 0, 255, 0.5), 0 0 30px rgba(191, 0, 255, 0.3);
+}
+
+.neon-pink {
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.5), 0 0 30px rgba(255, 0, 255, 0.3);
+}
+
+.text-neon-cyan {
+  color: #00ffff;
+}
+
+/* Backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.bg-neon-cyan {
+  background: #00ffff;
+}
+
+/* Card Effects */
+.card-glow {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), 0 0 30px rgba(191, 0, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5), 0 0 50px rgba(191, 0, 255, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Animations */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+  }
+  to {
+    text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Ensure sticky positioning works */
+app-root {
+  display: block;
+  min-height: 100vh;
+}
+
+neon-cyan {
+
+}

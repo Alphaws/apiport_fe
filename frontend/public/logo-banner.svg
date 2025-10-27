@@ -1,0 +1,118 @@
+<svg width="1920" height="400" viewBox="0 0 1920 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="bannerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="33%" style="stop-color:#bf00ff;stop-opacity:1" />
+      <stop offset="66%" style="stop-color:#ff00ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00ffff;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="bannerGlow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <radialGradient id="spotLight1">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#00ffff;stop-opacity:0" />
+    </radialGradient>
+
+    <radialGradient id="spotLight2">
+      <stop offset="0%" style="stop-color:#bf00ff;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#bf00ff;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background fill -->
+  <rect width="1920" height="400" fill="url(#bgGradient)"/>
+
+  <!-- Spotlight effects -->
+  <circle cx="300" cy="100" r="300" fill="url(#spotLight1)"/>
+  <circle cx="1620" cy="300" r="400" fill="url(#spotLight2)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <line x1="0" y1="100" x2="1920" y2="100" stroke="#00ffff" stroke-width="1"/>
+    <line x1="0" y1="200" x2="1920" y2="200" stroke="#bf00ff" stroke-width="1"/>
+    <line x1="0" y1="300" x2="1920" y2="300" stroke="#ff00ff" stroke-width="1"/>
+  </g>
+
+  <!-- Logo Icon (centered left) -->
+  <g transform="translate(120, 80)">
+    <!-- Rounded square background -->
+    <rect x="0" y="0" width="240" height="240" rx="40" fill="url(#bannerGradient)" opacity="0.15"/>
+    <rect x="0" y="0" width="240" height="240" rx="40" fill="none" stroke="url(#bannerGradient)" stroke-width="3" filter="url(#bannerGlow)"/>
+
+    <!-- Stylized "A" -->
+    <path d="M 60 210 L 80 50 L 110 50 L 95 210 Z" fill="url(#bannerGradient)" filter="url(#bannerGlow)"/>
+    <path d="M 150 50 L 170 50 L 190 210 L 150 210 Z" fill="url(#bannerGradient)" filter="url(#bannerGlow)"/>
+    <path d="M 85 75 L 160 75 L 157 95 L 88 95 Z" fill="url(#bannerGradient)" filter="url(#bannerGlow)"/>
+
+    <!-- Port opening -->
+    <rect x="102" y="120" width="46" height="55" rx="4" fill="#1a1a2e" stroke="url(#bannerGradient)" stroke-width="3" filter="url(#bannerGlow)"/>
+    <rect x="107" y="125" width="36" height="45" rx="2" fill="url(#bannerGradient)" opacity="0.3"/>
+
+    <!-- Tech lines -->
+    <line x1="60" y1="110" x2="40" y2="110" stroke="#00ffff" stroke-width="2" opacity="0.6"/>
+    <line x1="60" y1="140" x2="40" y2="140" stroke="#bf00ff" stroke-width="2" opacity="0.6"/>
+    <line x1="60" y1="170" x2="40" y2="170" stroke="#ff00ff" stroke-width="2" opacity="0.6"/>
+
+    <line x1="190" y1="110" x2="210" y2="110" stroke="#00ffff" stroke-width="2" opacity="0.6"/>
+    <line x1="190" y1="140" x2="210" y2="140" stroke="#bf00ff" stroke-width="2" opacity="0.6"/>
+    <line x1="190" y1="170" x2="210" y2="170" stroke="#ff00ff" stroke-width="2" opacity="0.6"/>
+
+    <!-- Data dots -->
+    <circle cx="50" cy="110" r="3" fill="#00ffff" filter="url(#bannerGlow)"/>
+    <circle cx="50" cy="140" r="3" fill="#bf00ff" filter="url(#bannerGlow)"/>
+    <circle cx="50" cy="170" r="3" fill="#ff00ff" filter="url(#bannerGlow)"/>
+    <circle cx="200" cy="110" r="3" fill="#00ffff" filter="url(#bannerGlow)"/>
+    <circle cx="200" cy="140" r="3" fill="#bf00ff" filter="url(#bannerGlow)"/>
+    <circle cx="200" cy="170" r="3" fill="#ff00ff" filter="url(#bannerGlow)"/>
+  </g>
+
+  <!-- Main Text -->
+  <g transform="translate(480, 200)">
+    <!-- APIPORT large text -->
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="120" font-weight="bold"
+          fill="url(#bannerGradient)" filter="url(#bannerGlow)" letter-spacing="8">
+      APIPORT
+    </text>
+
+    <!-- Tagline -->
+    <text x="0" y="60" font-family="Arial, sans-serif" font-size="32" fill="#888" letter-spacing="6">
+      MODERN API MANAGEMENT PLATFORM
+    </text>
+  </g>
+
+  <!-- Decorative elements -->
+  <g opacity="0.4">
+    <!-- Left side accents -->
+    <circle cx="60" cy="80" r="6" fill="#00ffff" filter="url(#bannerGlow)"/>
+    <circle cx="60" cy="200" r="4" fill="#bf00ff" filter="url(#bannerGlow)"/>
+    <circle cx="60" cy="320" r="5" fill="#ff00ff" filter="url(#bannerGlow)"/>
+
+    <!-- Right side accents -->
+    <circle cx="1860" cy="80" r="5" fill="#00ffff" filter="url(#bannerGlow)"/>
+    <circle cx="1860" cy="200" r="6" fill="#bf00ff" filter="url(#bannerGlow)"/>
+    <circle cx="1860" cy="320" r="4" fill="#ff00ff" filter="url(#bannerGlow)"/>
+
+    <!-- Connecting lines -->
+    <line x1="60" y1="80" x2="100" y2="100" stroke="#00ffff" stroke-width="2"/>
+    <line x1="60" y1="200" x2="100" y2="200" stroke="#bf00ff" stroke-width="2"/>
+    <line x1="60" y1="320" x2="100" y2="300" stroke="#ff00ff" stroke-width="2"/>
+
+    <line x1="1860" y1="80" x2="1820" y2="100" stroke="#00ffff" stroke-width="2"/>
+    <line x1="1860" y1="200" x2="1820" y2="200" stroke="#bf00ff" stroke-width="2"/>
+    <line x1="1860" y1="320" x2="1820" y2="300" stroke="#ff00ff" stroke-width="2"/>
+  </g>
+</svg>

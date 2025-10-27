@@ -1,0 +1,130 @@
+<!-- Sticky Header -->
+<header class="fixed top-0 left-0 right-0 z-[9999] bg-gray-900/95 backdrop-blur-lg border-b border-cyan-500/20">
+  <nav class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a routerLink="/" class="flex items-center space-x-2 cursor-pointer">
+        <img src="/logo-icon.svg" alt="Apiport" class="w-10 h-10">
+        <span class="text-2xl font-bold neon-text">Apiport</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#features" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ 'header.features' | translate }}</a>
+        <a href="#pricing" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ 'header.pricing' | translate }}</a>
+        <a href="#testimonials" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ 'header.testimonials' | translate }}</a>
+        <a routerLink="/blog" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ 'header.blog' | translate }}</a>
+        <a routerLink="/contact" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ 'header.contact' | translate }}</a>
+      </div>
+
+      <!-- CTA Buttons & Language Selector -->
+      <div class="hidden md:flex items-center space-x-4">
+        <app-language-selector></app-language-selector>
+
+        @if (!isAuthenticated()) {
+          <!-- Not authenticated: Show LoginComponent & RegisterComponent buttons -->
+          <button routerLink="/auth/login" class="px-4 py-2 text-cyan-400 border border-cyan-400/50 rounded-lg hover:bg-cyan-400/10 transition-all">
+            {{ 'header.login' | translate }}
+          </button>
+          <button routerLink="/auth/register" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all">
+            {{ 'header.register' | translate }}
+          </button>
+        } @else {
+          <!-- Authenticated: Show user menu -->
+          <div class="relative">
+            <button (click)="toggleUserMenu()" class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-gray-800/50 transition-all">
+              <!-- Avatar -->
+              @if (avatarUrl()) {
+                <img [src]="avatarUrl()" alt="Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-cyan-500/50" />
+              } @else {
+                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 flex items-center justify-center text-white font-bold">
+                  {{ getUserInitials() }}
+                </div>
+              }
+              <!-- User Name -->
+              <span class="text-gray-300">{{ userDisplayName() }}</span>
+              <!-- Dropdown Icon -->
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+
+            <!-- Dropdown Menu -->
+            @if (userMenuOpen) {
+              <div class="absolute right-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-lg border border-cyan-500/20 overflow-hidden z-50">
+                <button (click)="navigateToProfile()" class="w-full text-left px-4 py-3 border-b border-gray-700 hover:bg-gray-700/50 transition-colors">
+                  <p class="text-sm font-medium text-white truncate">{{ userDisplayName() }}</p>
+<!--                  <p class="text-sm text-gray-400 truncate">{{ currentUser()?.email }}</p>-->
+                </button>
+                <button (click)="navigateToAdmin()" class="w-full text-left px-4 py-2 text-cyan-400 hover:bg-gray-700/50 transition-colors flex items-center space-x-2">
+                  <span>📋</span>
+                  <span>{{ 'header.admin' | translate }}</span>
+                </button>
+                <button (click)="logout()" class="w-full text-left px-4 py-2 text-red-400 hover:bg-gray-700/50 transition-colors">
+                  {{ 'header.logout' | translate }}
+                </button>
+              </div>
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-cyan-400" (click)="toggleMobileMenu()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div [class.hidden]="!mobileMenuOpen" class="md:hidden mt-4 pb-4 space-y-4">
+      <a href="#features" (click)="closeMobileMenu()" class="block text-gray-300 hover:text-cyan-400 transition-colors">{{ 'header.features' | translate }}</a>
+      <a href="#pricing" (click)="closeMobileMenu()" class="block text-gray-300 hover:text-cyan-400 transition-colors">{{ 'header.pricing' | translate }}</a>
+      <a href="#testimonials" (click)="closeMobileMenu()" class="block text-gray-300 hover:text-cyan-400 transition-colors">{{ 'header.testimonials' | translate }}</a>
+      <a routerLink="/blog" (click)="closeMobileMenu()" class="block text-gray-300 hover:text-cyan-400 transition-colors">{{ 'header.blog' | translate }}</a>
+      <a routerLink="/contact" (click)="closeMobileMenu()" class="block text-gray-300 hover:text-cyan-400 transition-colors">{{ 'header.contact' | translate }}</a>
+      <div class="pt-4">
+        <app-language-selector></app-language-selector>
+      </div>
+
+      @if (!isAuthenticated()) {
+        <!-- Not authenticated: Show LoginComponent & RegisterComponent buttons -->
+        <div class="flex flex-col space-y-2 pt-4">
+          <button routerLink="/auth/login" (click)="closeMobileMenu()" class="px-4 py-2 text-cyan-400 border border-cyan-400/50 rounded-lg hover:bg-cyan-400/10 transition-all">
+            {{ 'header.login' | translate }}
+          </button>
+          <button routerLink="/auth/register" (click)="closeMobileMenu()" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-lg">
+            {{ 'header.register' | translate }}
+          </button>
+        </div>
+      } @else {
+        <!-- Authenticated: Show user info and logout -->
+        <div class="pt-4 border-t border-gray-700">
+          <button (click)="navigateToProfile()" class="w-full flex items-center space-x-3 px-4 py-3 hover:bg-gray-700/50 transition-colors rounded-lg">
+            <!-- Avatar -->
+            @if (avatarUrl()) {
+              <img [src]="avatarUrl()" alt="Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-cyan-500/50" />
+            } @else {
+              <div class="w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 flex items-center justify-center text-white font-bold">
+                {{ getUserInitials() }}
+              </div>
+            }
+            <div class="flex-1 text-left">
+              <p class="text-sm font-medium text-white">{{ userDisplayName() }}</p>
+<!--              <p class="text-xs text-gray-400 truncate">{{ currentUser()?.email }}</p>-->
+            </div>
+          </button>
+          <button (click)="navigateToAdmin()" class="w-full mt-2 px-4 py-2 text-cyan-400 border border-cyan-400/50 rounded-lg hover:bg-cyan-400/10 transition-all flex items-center justify-center space-x-2">
+            <span>📋</span>
+            <span>{{ 'header.admin' | translate }}</span>
+          </button>
+          <button (click)="logout()" class="w-full mt-2 px-4 py-2 text-red-400 border border-red-400/50 rounded-lg hover:bg-red-400/10 transition-all">
+            {{ 'header.logout' | translate }}
+          </button>
+        </div>
+      }
+    </div>
+  </nav>
+</header>
+
