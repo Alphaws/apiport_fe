@@ -1,0 +1,20 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: ${PROJECT_NAME}_frontend:${TAG}
+    labels:
+      - traefik.enable=true
+    restart: unless-stopped
+    ports:
+      - 4000:4000
+    networks:
+      - apiport
+      - traefik
+
+networks:
+  apiport:
+    driver: bridge
+  traefik:
+    external: true
