@@ -1,1 +1,40 @@
-<p>language-selector works!</p>
+<div class="relative">
+  <!-- Language Button -->
+  <button
+    (click)="toggleDropdown()"
+    class="flex items-center space-x-2 px-3 py-2 text-gray-300 hover:text-cyan-400 border border-gray-700 hover:border-cyan-400/50 rounded-lg transition-all"
+  >
+    <span class="text-xl">{{ currentLanguage.flag }}</span>
+    <span class="hidden sm:inline text-sm">{{ currentLanguage.code.toUpperCase() }}</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <!-- Dropdown Menu -->
+
+  @if (isOpen) {
+    <div class="absolute right-0 mt-2 w-48 bg-gray-800 border border-cyan-500/20 rounded-lg shadow-lg overflow-hidden z-50">
+      <div
+        *ngFor="let language of languages"
+        (click)="selectLanguage(language)"
+        class="flex items-center space-x-3 px-4 py-3 hover:bg-gray-700 cursor-pointer transition-colors"
+        [class.bg-gray-700]="currentLanguage.code === language.code"
+      >
+        <span class="text-xl">{{ language.flag }}</span>
+        <span class="text-gray-300">{{ language.name }}</span>
+      </div>
+    </div>
+  }
+
+
+
+
+
+</div>
+
+<!-- Backdrop for closing dropdown -->
+@if (isOpen) {
+  <div (click)="closeDropdown()" class="fixed inset-0 z-40"></div>
+}
+

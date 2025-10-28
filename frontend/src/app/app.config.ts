@@ -11,26 +11,28 @@ import {HttpClient, provideHttpClient, withFetch} from '@angular/common/http';
 import {AuthService} from './services/auth.service';
 //import {TranslationService} from './services/translation.service';
 //import {TranslationLoaderService} from './services/translation-loader.service';
-import {lastValueFrom} from 'rxjs';
+import {firstValueFrom, lastValueFrom, tap} from 'rxjs';
+import {TranslationService} from './services/translation.service';
+import {TranslationLoaderService} from './services/translation-loader.service';
 
-// const initializeTranslations = (
-//   translationService: TranslationService,
-//   loaderService: TranslationLoaderService
-// ) => {
-//   return () => {
-//     const translations = loaderService.getTranslations();
-//     translationService.loadTranslations(translations);
-//   };
-// };
+const initializeTranslations = (
+  translationService: TranslationService,
+  loaderService: TranslationLoaderService
+) => {
+  return () => {
+    const translations = loaderService.getTranslations();
+    translationService.loadTranslations(translations);
+  };
+};
 
-// const initializeAuth = (authService: AuthService) => {
-//   return () => {
-//     // Load user from API on app startup
-//     return lastValueFrom(authService.loadUser().pipe());
-//   };
-// };
+const initializeAuth = (authService: AuthService) => {
+  return () => {
+    // Load user from API on app startup
+    return lastValueFrom(authService.loadUser().pipe());
+  };
+};
 
-
+//
 // export function initializeAppFactory(
 //   authService: AuthService,
 //   translationService: TranslationService,
@@ -63,8 +65,27 @@ export const appConfig: ApplicationConfig = {
       registrationStrategy: 'registerWhenStable:30000'
     }),
     provideAppInitializer(() => {
+      console.log('appInitializer');
       const http = inject(HttpClient);
-      return
+      const authService = inject(AuthService);
+      const translationService = inject(TranslationService);
+      const loaderService = inject(TranslationLoaderService);
+      const auth = initializeAuth(authService)();
+      const translate = initializeTranslations(translationService, loaderService)();
+      return Promise.all([auth, translate]);
+      // return () => {
+      //
+      // };
+
+      //initializeAppFactory(authService, translationService, loaderService);
+
+      //initializeAppFactory();
+     // return;
+      // return firstValueFrom(
+      //   http
+      //     .get("https://someUrl.com/api/user")
+      //     .pipe(tap(user => console.log(user)))
+      // );
     })
   ]
 };
